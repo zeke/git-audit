@@ -24,6 +24,6 @@ puts unstaged.map{|_| _.path }.join("\n")
 puts "\nUNPUSHED"
 puts unpushed.map{|_| _.path }.join("\n")
 
-puts "\nCLEAN"
-puts clean.map{|_| _.path }.join("\n")
+# puts "\nCLEAN"
+# puts clean.map{|_| _.path }.join("\n")
 
