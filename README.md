@@ -1,51 +1,36 @@
-git_audit
+git-audit
 =========
 
-This script finds git repos with unstaged changes and/or unpushed commits (in the currently checked-out branch).
+This script finds git repos within the given path that have unstaged changes and/or unpushed commits (in their currently checked-out branch).
 
-Sample Usage
+
+Installation
 ------------
 
-    git clone git://github.com/zeke/git_audit.git
-    cd git_audit
-    ruby git_audit.rb ~/Projects
+```sh
+curl -O https://raw.github.com/zeke/git-audit/master/git-audit.rb \
+  /usr/local/bin/git-audit
+chmod +x $!
+git audit ~/code
+```
+
+Usage
+-----
+
+```sh
+git audit ~/code
+git audit # audit working directory
+```
 
 Sample Output
 -------------
 
     UNSTAGED
     /Users/zeke/Projects/forks/alchemy_api/
-    /Users/zeke/Projects/friends/joe_sikelianos/urbanarboristsf.com/
     /Users/zeke/Projects/friends/joe_sikelianos/urbanarboristsf/
     /Users/zeke/Projects/hero/heroku-addon-plans-ui/
     /Users/zeke/Projects/libraries/InstantJasmineCoffee/
     /Users/zeke/Projects/libraries/common_view_helpers/
-    /Users/zeke/Projects/libraries/git_audit/
-    /Users/zeke/Projects/libraries/impress.js/
-    /Users/zeke/Projects/libraries/monkey_patches/
-    /Users/zeke/Projects/libraries/star-rating/
-    /Users/zeke/Projects/libraries/swf_ditty/
-    /Users/zeke/Projects/libraries/textile_helpers/
-    /Users/zeke/Projects/personal/oneoffs/
-    /Users/zeke/Projects/personal/resume/
-    /Users/zeke/Projects/personal/yaup/
-    /Users/zeke/Projects/wordnik/arpabet/
-    /Users/zeke/Projects/wordnik/assets/branding/
-    /Users/zeke/Projects/wordnik/blog/blog-hacked/
-    /Users/zeke/Projects/wordnik/chorus/old-plugin/
-    /Users/zeke/Projects/wordnik/libraries/afterparty/
-    /Users/zeke/Projects/wordnik/other/WOTD-scripts/
-    /Users/zeke/Projects/wordnik/other/logophilia/rails/
-    /Users/zeke/Projects/wordnik/other/matterhorn/
-    /Users/zeke/Projects/wordnik/other/nytimes_context_window/rails/
-    /Users/zeke/Projects/wordnik/other/old_disambigua/
-    /Users/zeke/Projects/wordnik/other/tools/
-    /Users/zeke/Projects/wordnik/other/word_neighborhood/rails/
-    /Users/zeke/Projects/wordnik/other/word_pong/
-    /Users/zeke/Projects/wordnik/other/wordrainbow/
-    /Users/zeke/Projects/wordnik/presos/
-    /Users/zeke/Projects/wordnik/swagger/swagger-sample-app/
-    /Users/zeke/Projects/wordnik/swagger/swagger-ui/
 
     UNPUSHED
     /Users/zeke/Projects/wordnik/libraries/wordnik-python/
@@ -58,93 +43,5 @@ Sample Output
     /Users/zeke/Projects/forks/geo_ips/
     /Users/zeke/Projects/forks/monster_mash/
     /Users/zeke/Projects/gemini/fa_pocket_guides/
-    /Users/zeke/Projects/hero/Induction/
     /Users/zeke/Projects/hero/kensa/
     /Users/zeke/Projects/libraries/autoform/
-    /Users/zeke/Projects/libraries/bootstrap/
-    /Users/zeke/Projects/libraries/breadcrumbs/
-    /Users/zeke/Projects/libraries/cloudapp_api/
-    /Users/zeke/Projects/libraries/coffeescript-cookbook.github.com/
-    /Users/zeke/Projects/libraries/flash_message_helpers/
-    /Users/zeke/Projects/libraries/google_analytics/
-    /Users/zeke/Projects/libraries/hamlize_views/
-    /Users/zeke/Projects/libraries/heroku_asset_cacher/
-    /Users/zeke/Projects/libraries/mysql_s3_backup_tool/
-    /Users/zeke/Projects/libraries/phantom-jasmine/
-    /Users/zeke/Projects/libraries/ratpack/
-    /Users/zeke/Projects/libraries/rotunda/
-    /Users/zeke/Projects/libraries/sinatra-rubygems/
-    /Users/zeke/Projects/libraries/sortable_table/
-    /Users/zeke/Projects/libraries/spritely/
-    /Users/zeke/Projects/libraries/stamp/
-    /Users/zeke/Projects/libraries/swf_train/
-    /Users/zeke/Projects/libraries/text/
-    /Users/zeke/Projects/libraries/zepto/
-    /Users/zeke/Projects/personal/404_color_bars/
-    /Users/zeke/Projects/personal/blurt_derby/
-    /Users/zeke/Projects/personal/dotfiles/
-    /Users/zeke/Projects/personal/folksonomatron/
-    /Users/zeke/Projects/personal/monkey_patches/
-    /Users/zeke/Projects/personal/outcasts/
-    /Users/zeke/Projects/personal/panolingua/
-    /Users/zeke/Projects/personal/queriac/
-    /Users/zeke/Projects/personal/spritely/
-    /Users/zeke/Projects/personal/wordpress_blog/
-    /Users/zeke/Projects/personal/zass/
-    /Users/zeke/Projects/personal/zeke.heroku.com/
-    /Users/zeke/Projects/personal/zeke.sikelianos.com/
-    /Users/zeke/Projects/wordnik/Ikijibiki/
-    /Users/zeke/Projects/wordnik/api/api-server/
-    /Users/zeke/Projects/wordnik/api/build-common/
-    /Users/zeke/Projects/wordnik/assets/developer.wordnik.com/
-    /Users/zeke/Projects/wordnik/assets/www.wordnik.com/
-    /Users/zeke/Projects/wordnik/blog/blog.wordnik.com/
-    /Users/zeke/Projects/wordnik/blurt/
-    /Users/zeke/Projects/wordnik/chorus/chorus-wordpress/
-    /Users/zeke/Projects/wordnik/chorus/chorus_ui/
-    /Users/zeke/Projects/wordnik/chorus/wordpress-heroku/
-    /Users/zeke/Projects/wordnik/clients/forbes/forbes-app/
-    /Users/zeke/Projects/wordnik/clients/forbes/forbes-concepts-demo/
-    /Users/zeke/Projects/wordnik/clients/forbes/forbes_css/
-    /Users/zeke/Projects/wordnik/clients/nook.wotd/
-    /Users/zeke/Projects/wordnik/clients/tumblr-demo/
-    /Users/zeke/Projects/wordnik/clients/twitter-demo/
-    /Users/zeke/Projects/wordnik/developer.wordnik.com/
-    /Users/zeke/Projects/wordnik/developer.wordnik.com/lib/generators/haml/
-    /Users/zeke/Projects/wordnik/disambigua/
-    /Users/zeke/Projects/wordnik/fret/
-    /Users/zeke/Projects/wordnik/libraries/cakefile-template/
-    /Users/zeke/Projects/wordnik/libraries/chronicle/
-    /Users/zeke/Projects/wordnik/libraries/clippy/
-    /Users/zeke/Projects/wordnik/libraries/ezcookie/
-    /Users/zeke/Projects/wordnik/libraries/gravatar_image_tag/
-    /Users/zeke/Projects/wordnik/libraries/mediawiki-gateway/
-    /Users/zeke/Projects/wordnik/libraries/microsoft_ngram/
-    /Users/zeke/Projects/wordnik/libraries/reqwest/
-    /Users/zeke/Projects/wordnik/libraries/special_agent/
-    /Users/zeke/Projects/wordnik/libraries/wordnik-php/
-    /Users/zeke/Projects/wordnik/libraries/wordnik-ruby/
-    /Users/zeke/Projects/wordnik/libraries/wordnik_ruby_helpers/
-    /Users/zeke/Projects/wordnik/libraries/zazz/
-    /Users/zeke/Projects/wordnik/other/alphabet_tree/
-    /Users/zeke/Projects/wordnik/other/etymojo/
-    /Users/zeke/Projects/wordnik/other/keysiness/
-    /Users/zeke/Projects/wordnik/other/pathnik/
-    /Users/zeke/Projects/wordnik/other/r-d/
-    /Users/zeke/Projects/wordnik/other/tumblr/roget/
-    /Users/zeke/Projects/wordnik/other/web-ria/
-    /Users/zeke/Projects/wordnik/other/wmr/
-    /Users/zeke/Projects/wordnik/other/word_pong/lib/generators/haml/
-    /Users/zeke/Projects/wordnik/other/wordrabbit/
-    /Users/zeke/Projects/wordnik/sniphr-chrome/
-    /Users/zeke/Projects/wordnik/sniphr/
-    /Users/zeke/Projects/wordnik/swagger/swagger-codegen/
-    /Users/zeke/Projects/wordnik/swagger/swagger-coffee/
-    /Users/zeke/Projects/wordnik/swagger/swagger-core/
-    /Users/zeke/Projects/wordnik/swagger/swagger.js/
-    /Users/zeke/Projects/wordnik/swagger/swagger.wordnik.com/
-    /Users/zeke/Projects/wordnik/wordnik-chrome/
-    /Users/zeke/Projects/wordnik/wordnik-ruby-example-rails/
-    /Users/zeke/Projects/wordnik/wordnik.github.com/
-    /Users/zeke/Projects/wordnik/wordnik_oneoffs/
-    /Users/zeke/Projects/wordnik/www.wordnik.com/

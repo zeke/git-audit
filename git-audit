@@ -1,11 +1,13 @@
-# This script finds git repos with unstaged changes and/or unpushed commits
+#!/usr/bin/env ruby -w
+
+# This ruby script finds git repos with unstaged changes and/or unpushed commits
 # (in the currently checked-out branch).
 
 require 'ostruct'
 
-abort "Please specify a base directory, e.g. `ruby git_audit.rb ~/projects" unless ARGV.first
+# abort "Please specify a base directory, e.g. `git audit ~/code" unless ARGV.first
 
-basedir = ARGV.first.sub(/\/$/, '')
+basedir = ARGV.first.sub(/\/$/, '') || "."
 
 repos = %x[find #{basedir} -name '*.git' -type d | sort].split("\n").map do |path|
   repo = OpenStruct.new
