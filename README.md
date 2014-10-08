@@ -8,9 +8,9 @@ Installation
 ------------
 
 ```sh
-curl -O https://raw.github.com/zeke/git-audit/master/git-audit.rb \
-  /usr/local/bin/git-audit
-chmod +x $!
+curl https://raw.github.com/zeke/git-audit/master/git-audit.rb \
+  -o /usr/local/bin/git-audit
+chmod +x /usr/local/bin/git-audit
 git audit ~/code
 ```
 
