@@ -16,7 +16,7 @@ repos = %x[find #{basedir} -name '*.git' -type d | sort].split("\n").map do |pat
   repo
 end
 
-clean = repos.select {|_| _.status =~ /working directory clean/ }
+clean = repos.select {|_| _.status =~ /working directory clean/ || _.status =~ /working tree clean/ }
 unpushed = repos.select {|_| _.status =~ /branch is ahead/ }
 unstaged = repos - clean - unpushed
 
