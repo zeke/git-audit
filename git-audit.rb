@@ -7,7 +7,7 @@ require 'ostruct'
 
 # abort "Please specify a base directory, e.g. `git audit ~/code" unless ARGV.first
 
-basedir = ARGV.first.sub(/\/$/, '') || "."
+basedir = ARGV.any? ? ARGV.first.sub(/\/$/, '') : "."
 
 repos = %x[find #{basedir} -name '*.git' -type d | sort].split("\n").map do |path|
   repo = OpenStruct.new
